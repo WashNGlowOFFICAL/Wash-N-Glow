@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wash n Glow</title>
+  <style>
+    /* ======= CSS Styles (from Tailwind-like custom style) ======= */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom right, #bfdbfe, #ffffff);
+      color: #1e3a8a;
+      margin: 0; padding: 0;
+    }
+    header {
+      background: linear-gradient(to right, #1e40af, #2563eb);
+      color: white;
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    header h1 {
+      font-family: 'Russo One', sans-serif;
+      font-size: 2.5rem;
+      margin: 0;
+      user-select: none;
+    }
+    nav a {
+      color: white;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: text-decoration 0.3s;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section.hero {
+      text-align: center;
+      padding: 5rem 2rem 6rem;
+      background: white;
+      box-shadow: inset 0 -5px 10px rgba(37,99,235,0.2);
+    }
+    section.hero h2 {
+      font-size: 3.5rem;
+      color: #1e40af;
+      margin-bottom: 0.75rem;
+    }
+    section.hero p {
+      font-size: 1.3rem;
+      color: #4b5563;
+      margin-bottom: 2rem;
+    }
+    .btn-glow {
+      background-color: #2563eb;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 0 15px rgba(37,99,235,0.6);
+      border: none;
+      cursor: pointer;
+      transition: box-shadow 0.3s, transform 0.3s;
+      user-select: none;
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 25px rgba(37,99,235,0.9);
+      transform: scale(1.05);
+    }
+    section#services {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: box-shadow 0.3s, transform 0.3s;
+      user-select: none;
+    }
+    .service-card:hover {
+      box-shadow: 0 15px 25px rgba(37,99,235,0.4);
+      transform: translateY(-8px);
+    }
+    .service-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+    .service-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #1e40af;
+    }
+    .service-desc {
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+    .service-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #2563eb;
+      user-select: text;
+    }
+    section#about {
+      background: linear-gradient(to right, #eff6ff, #ffffff);
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      color: #1e40af;
+    }
+    section#about h3 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    section#about p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #4b5563;
+      user-select: text;
+    }
+    section#contact {
+      background: white;
+      max-width: 700px;
+      margin: 3rem auto 6rem;
+      padding: 2rem;
+      box-shadow: inset 0 0 15px rgba(37,99,235,0.1);
+      border-radius: 1rem;
+      text-align: center;
+      color: #1e40af;
+      user-select: text;
+    }
+    section#contact h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    section#contact p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    section#contact a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    section#contact a:hover {
+      text-decoration: underline;
+    }
+    ul.hours {
+      list-style: none;
+      padding: 0;
+      margin: 1rem auto 0;
+      max-width: 300px;
+      text-align: left;
+      color: #1e40af;
+      font-weight: 600;
+    }
+    ul.hours li {
+      margin-bottom: 0.4rem;
+    }
+    footer {
+      background-color: #1e40af;
+      color: #bfdbfe;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    footer a {
+      color: #93c5fd;
+      text-decoration: underline;
+    }
+    footer a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚗 Wash n Glow</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Shine Brighter. Drive Cleaner.</h2>
+    <p>Premium car wash services that leave your ride glowing like new.</p>
+    <a href="#services" class="btn-glow">🚘 View Services</a>
+  </section>
+
+  <section id="services">
+    <div class="service-card">
+      <div class="service-icon">💦</div>
+      <div class="service-title">Wash</div>
+      <div class="service-desc">Complete exterior wash to keep your car shining.</div>
+      <div class="service-price">$15</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧽</div>
+      <div class="service-title">Detailing</div>
+      <div class="service-desc">Thorough interior and exterior cleaning and conditioning.</div>
+      <div class="service-price">$40</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <div class="service-title">Polishing</div>
+      <div class="service-desc">Professional polishing to restore your car's shine and remove scratches.</div>
+      <div class="service-price">$60</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <div class="service-title">Cut and Polish</div>
+      <div class="service-desc">Paint correction to remove imperfections and enhance gloss.</div>
+      <div class="service-price">$120</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <div class="service-title">Ceramic Coating</div>
+      <div class="service-desc">Advanced protective coating for long-lasting shine and protection.</div>
+      <div class="service-price">$350</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h3>Why Choose Wash n Glow?</h3>
+    <p>We’re more than just soap and water. Our trained professionals use top-quality products and techniques to care for your car like it’s their own. Fast, friendly, and always sparkling clean!</p>
+  </section>
+
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <p>📍 <strong>22 Diane St, Mornington VIC 3931</strong></p>
+    <p>📞 <strong><a href="tel:0431336039">0431 336 039</a></strong></p>
+    <p>🔗 Check out our <strong><a href="https://www.facebook.com/washnglowofficial" target="_blank" rel="noopener noreferrer">Facebook</a></strong> to view our work</p>
+
+    <ul class="hours">
+      <li><strong>Monday:</strong> 8:30 am – 5 pm</li>
+      <li><strong>Tuesday:</strong> 8:30 am – 5 pm</li>
+      <li><strong>Wednesday:</strong> 8:30 am – 5 pm</li>
+      <li><strong>Thursday:</strong> 8:30 am – 5 pm</li>
+      <li><strong>Friday:</strong> 8:30 am – 5 pm</li>
+      <li><strong>Saturday:</strong> Closed</li>
+      <li><strong>Sunday:</strong> Closed</li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 Wash n Glow. All rights reserved.<br/>
+    <a href="https://www.facebook.com/washnglowofficial" target="_blank" rel="noopener noreferrer">📘 Follow us on Facebook</a>
+  </footer>
+
+  <script>
+    // Show a welcome alert when the page loads
+    window.onload = function() {
+      alert('Welcome to Wash n Glow! Ready to make your car shine?');
+    };
+
+    // Smooth scroll for all anchor links starting with #
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Show alert when "View Services" button is clicked
+    const servicesBtn = document.querySelector('a[href="#services"]');
+    if (servicesBtn) {
+      servicesBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // prevent jump, since smooth scroll happens
+        alert('Check out our awesome services below!');
+        document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>
